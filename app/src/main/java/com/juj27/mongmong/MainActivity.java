@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     case  R.id.bnv_category:
                         if(fragments[2] == null){
                             fragments[2] = new CategoryFragment();
-                            tran.add(R.id.container, fragments[1]);
+                            tran.add(R.id.container, fragments[2]);
                         }
                         tran.show(fragments[2]);
                         break;
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     case  R.id.bnv_information:
                         if(fragments[3] == null){
                             fragments[3] = new InformationFragment();
-                            tran.add(R.id.container, fragments[1]);
+                            tran.add(R.id.container, fragments[3]);
                         }
                         tran.show(fragments[3]);
                         break;
