@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +20,7 @@ import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kakao.sdk.common.util.Utility;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -114,7 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
                 
             case android.R.id.home:
-                Toast.makeText(this, "bbb", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);
