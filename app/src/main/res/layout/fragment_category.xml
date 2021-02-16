@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CATEGORY"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:clickable="true"
+        android:layout_marginBottom="8dp"/>
+
+
+    <ImageView
+        android:id="@+id/de"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/design"
+        android:layout_below="@id/tv"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/it"
+        android:layout_toRightOf="@id/de"
+        android:layout_below="@+id/tv"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/pho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/photo"
+        android:layout_below="@id/tv"
+        android:layout_toRightOf="@id/it"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/ma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/marketing"
+        android:layout_below="@id/de"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/tran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/translation"
+        android:layout_below="@id/it"
+        android:layout_toRightOf="@id/ma"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/docu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/document"
+        android:layout_below="@id/pho"
+        android:layout_toRightOf="@id/tran"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/order"
+        android:layout_below="@id/ma"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/le"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/lesson"
+        android:layout_below="@id/tran"
+        android:layout_toRightOf="@id/or"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/book"
+        android:layout_below="@id/docu"
+        android:layout_toRightOf="@id/le"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/job"
+        android:layout_below="@id/or"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/bu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/business"
+        android:layout_below="@id/le"
+        android:layout_toRightOf="@id/job"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/order"
+        android:layout_below="@id/book"
+        android:layout_toRightOf="@id/bu"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"/>
+
+</RelativeLayout>
