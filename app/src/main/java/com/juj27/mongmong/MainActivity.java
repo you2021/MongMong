@@ -25,7 +25,7 @@ import com.kakao.sdk.common.util.Utility;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bnv;
-    Fragment[] fragments = new Fragment[4];
+    Fragment[] fragments = new Fragment[5];
     FragmentManager fragmentManager;
 
     @Override
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 if(fragments[1] !=null) tran.hide(fragments[1]);
                 if(fragments[2] !=null) tran.hide(fragments[2]);
                 if(fragments[3] !=null) tran.hide(fragments[3]);
+                if(fragments[4] !=null) tran.hide(fragments[4]);
 
                 switch (item.getItemId()){
                     case  R.id.bnv_home:
@@ -90,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
                         if(fragments[3] == null){
                             fragments[3] = new InformationFragment();
                             tran.add(R.id.container, fragments[3]);
+
+                            //전문가모드 추가 및 시작은 안보이도록
+                            fragments[4]= new InformationExpertFragment();
+                            tran.add(R.id.container, fragments[4]);
+                            tran.hide(fragments[4]);
                         }
                         tran.show(fragments[3]);
                         break;

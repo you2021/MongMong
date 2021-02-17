@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListEditActivity"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit"
+        android:ems="10"
+        android:hint="name"
+        android:padding="8dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit"
+        android:ems="10"
+        android:hint="title"
+        android:padding="8dp"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_edit"
+        android:hint="message"
+        android:gravity="top"
+        android:padding="8dp"
+        android:inputType="textMultiLine"/>
+
+    <EditText
+        android:id="@+id/et_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit"
+        android:ems="10"
+        android:hint="price"
+        android:padding="8dp"
+        android:inputType="number"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="select image"
+        android:layout_gravity="right"
+        android:padding="4dp"
+        android:backgroundTint="#FFE9A7"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:onClick="clickSelect"/>
+
+    <ImageView
+        android:id="@+id/iv_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_edit"
+        android:src="@drawable/ic_message_24"
+        android:padding="4dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="complete"
+        android:onClick="clickComplete"
+        android:backgroundTint="#FFE9A7"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+
+
+</LinearLayout>

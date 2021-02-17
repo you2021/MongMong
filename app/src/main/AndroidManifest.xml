@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MongMong"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NoticeActivity"></activity>
+        <activity android:name=".ListEditActivity"></activity>
+        <activity android:name=".NoticeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

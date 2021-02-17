@@ -41,8 +41,12 @@ public class LoginActivity extends AppCompatActivity {
                         
                         if (oAuthToken != null){
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+
+
+
                         }else {
                             Toast.makeText(LoginActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
+
                         }
                         
                         return null;
