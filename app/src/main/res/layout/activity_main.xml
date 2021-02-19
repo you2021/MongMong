@@ -45,8 +45,8 @@
                 app:menu="@menu/bnv"
                 app:itemIconTint="@color/bnv_item"
                 app:itemTextColor="@color/bnv_item"/>
-        </RelativeLayout>
 
+        </RelativeLayout>
 
 
 </LinearLayout>

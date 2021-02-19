@@ -129,13 +129,11 @@
             android:src="@drawable/kakao_login_medium_wide"
             android:onClick="clickKakao"/>
 
-        <ImageButton
-            android:id="@+id/face_login"
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
             android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/kakao_login_medium_wide"/>
-
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"/>
     </LinearLayout>
 
 
