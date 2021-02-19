@@ -4,13 +4,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class HomeFragment extends Fragment {
 
@@ -30,11 +37,49 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView3;
     RecyclerListAdapter listAdapter;
 
+    SwipeRefreshLayout refreshLayout;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         loadData();
+
+    }
+
+    //이 액티비티가 화면에 보여질 때 리사이클러가 보여줄 아이템들을 서버DB에서 불러오기
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        retrofitLoadData();
+    }
+
+    //서버에서 데이커를 불러오는 기능메소드
+    void  retrofitLoadData(){
+        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
+        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+        Call<ArrayList<RecyclerListItem>> call = retrofitService.loadDataFromServer();
+        call.enqueue(new Callback<ArrayList<RecyclerListItem>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RecyclerListItem>> call, Response<ArrayList<RecyclerListItem>> response) {
+                // 기존데이터들 모두제거
+                listItems.clear();
+                listAdapter.notifyDataSetChanged();;
+
+                //결과로 받아온 item에 추가
+                ArrayList<RecyclerListItem> list =  response.body();
+                for(RecyclerListItem item : list){
+                    listItems.add(0,item);
+                    listAdapter.notifyItemInserted(0);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<RecyclerListItem>> call, Throwable t) {
+                Toast.makeText(getActivity(), "실패"+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Nullable
@@ -63,6 +108,7 @@ public class HomeFragment extends Fragment {
         listAdapter = new RecyclerListAdapter(getActivity(), listItems);
         recyclerView3.setAdapter(listAdapter);
 
+
     }
 
     void loadData(){
@@ -87,14 +133,10 @@ public class HomeFragment extends Fragment {
         items2.add(new HomeRecyclerItem());
         items2.add(new HomeRecyclerItem());
         items2.add(new HomeRecyclerItem());
-
-        listItems.add(new RecyclerListItem());
-        listItems.add(new RecyclerListItem());
-        listItems.add(new RecyclerListItem());
-        listItems.add(new RecyclerListItem());
-        listItems.add(new RecyclerListItem());
-        listItems.add(new RecyclerListItem());
     }
+
+
+
 
 
 }

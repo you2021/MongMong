@@ -4,12 +4,20 @@ public class RecyclerListItem {
 
     int no;
     String name;
-    String imgUrl;
+    String img;
     String title;
-    String message;
+    String msg;
     String price;
     int favor;
     String date;
+
+    public RecyclerListItem(String category, String subcategory) {
+        this.category = category;
+        this.subcategory = subcategory;
+    }
+
+    String category;
+    String subcategory;
 
     public RecyclerListItem() {
     }
@@ -17,9 +25,9 @@ public class RecyclerListItem {
     public RecyclerListItem(int no, String name, String imgUrl, String title, String message, String price, int favor, String date) {
         this.no = no;
         this.name = name;
-        this.imgUrl = imgUrl;
+        this.img = imgUrl;
         this.title = title;
-        this.message = message;
+        this.msg = message;
         this.price = price;
         this.favor = favor;
         this.date = date;

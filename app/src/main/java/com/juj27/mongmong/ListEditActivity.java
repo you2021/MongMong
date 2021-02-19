@@ -10,9 +10,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +41,23 @@ public class ListEditActivity extends AppCompatActivity {
 
     String imgPath;
 
+    Spinner spinner, spinner2;
+    String[][] subCategories = new String[][]{
+            {"선택"},
+        {"aa","bb","aff","aafd","asda"},
+        {"a4546a","b123b","af1231f","53aafd","a3sda"},
+        {"4546a","b123b","af1231f","53aafd","a3sda"},
+        {"a446a","b123b","af1231f","53aafd","a3sda"},
+        {"a","b123b","af1231f","53aafd","a3sda"},
+        {"46a","b123b","af1231f","53aafd","a3sda"},
+        {"6a","b123b","af1231f","53aafd","a3sda"},
+        {"546a","b123b","af1231f","53aafd"},
+        {"a4546a","b123b","af1231f"},
+        {"a4546a","b123b","af1231f","53aafd","a3sda"},
+        {"a4546a","b123b","53aafd","a3sda"},
+        {"af1231f","53aafd","a3sda"}
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +68,29 @@ public class ListEditActivity extends AppCompatActivity {
         etMsg = findViewById(R.id.et_msg);
         etPrice = findViewById(R.id.et_price);
         iv = findViewById(R.id.iv_list);
+
+        spinner = findViewById(R.id.spinner);
+        spinner2= findViewById(R.id.spinner2);
+        ArrayAdapter adapter = new ArrayAdapter(ListEditActivity.this, R.layout.spinner_selected,subCategories[0]);
+        spinner2.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                ArrayAdapter adapter = new ArrayAdapter(ListEditActivity.this, R.layout.spinner_selected,subCategories[position]);
+                spinner2.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
     }
 
@@ -66,7 +110,7 @@ public class ListEditActivity extends AppCompatActivity {
 
                 imgPath = getRealPathFromUri(uri);
 
-                new AlertDialog.Builder(this).setMessage(imgPath).show();
+//                new AlertDialog.Builder(this).setMessage(imgPath).show();
             }
         }
     }
@@ -91,6 +135,10 @@ public class ListEditActivity extends AppCompatActivity {
         String msg = etMsg.getText().toString();
         String price = etPrice.getText().toString();
 
+        String category=spinner.getSelectedItem().toString();
+        String subcategory = spinner2.getSelectedItem().toString();
+
+
         Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
         RetrofitService retrofitService = retrofit.create((RetrofitService.class));
 
@@ -107,6 +155,8 @@ public class ListEditActivity extends AppCompatActivity {
         dataPart.put("title", title);
         dataPart.put("msg", msg);
         dataPart.put("price", price);
+        dataPart.put("category",category);
+        dataPart.put("subcategory",subcategory);
 
         Call<String> call = retrofitService.postDataToServer(dataPart, filePart);
         call.enqueue(new Callback<String>() {
@@ -114,11 +164,13 @@ public class ListEditActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 String s= response.body();
                 Toast.makeText(ListEditActivity.this, ""+s, Toast.LENGTH_SHORT).show();
+                Log.i("tag",""+s);
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(ListEditActivity.this, "error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i("tag","aa:"+t.getMessage());
 
             }
         });

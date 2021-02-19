@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="caterogy">
+
+        <item>선택</item>
+        <item>디자인</item>
+        <item>IT 프로그래밍</item>
+        <item>영상 사진 음향</item>
+        <item>마케팅</item>
+        <item>번역 통역</item>
+        <item>문서 글쓰기</item>
+        <item>주문제작</item>
+        <item>레슨 실무교육</item>
+        <item>전자책</item>
+        <item>취업 투잡</item>
+        <item>비즈니스컨설팅</item>
+        <item>주문제작</item>
+    </string-array>
+</resources>
