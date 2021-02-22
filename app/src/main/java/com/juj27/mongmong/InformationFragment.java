@@ -8,11 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
+import com.kakao.sdk.user.UserApiClient;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class InformationFragment extends Fragment {
 
@@ -28,9 +36,10 @@ public class InformationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //전문가 모드로 화면 변경 버튼
         LinearLayout tvChange;
-
         tvChange = view.findViewById(R.id.liner_client);
+
         tvChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,9 +52,10 @@ public class InformationFragment extends Fragment {
             }
         });
 
+        //의뢰내역 화면 넘어가기 버튼
         TextView tvRegistration;
-
         tvRegistration = view.findViewById(R.id.tv_registration);
+
         tvRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +64,49 @@ public class InformationFragment extends Fragment {
 
             }
         });
+
+        //로그인 시 이미지 닉네임 가져오기
+        CircleImageView circle;
+        TextView tvNick;
+        circle = view.findViewById(R.id.circle);
+        tvNick = view.findViewById(R.id.et_nick);
+
+
+        tvNick.setText(Login.nickName);
+        Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+
+        //로그아웃
+        TextView logout;
+        logout = view.findViewById(R.id.client_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+                        if (throwable !=null)
+                            Toast.makeText(getActivity(), "로그아웃 실패", Toast.LENGTH_SHORT).show();
+                        else{
+                            Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();
+
+                            Login.nickName = null;
+                            Login.profileUrl = null;
+
+                            tvNick.setText(Login.nickName);
+                            Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+
+                        }
+                        return null;
+                    }
+                });
+            }
+        });
+
+
+
+
+
 
 
     }

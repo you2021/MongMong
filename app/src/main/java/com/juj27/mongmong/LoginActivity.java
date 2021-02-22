@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -19,12 +20,14 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.gson.JsonObject;
 import com.kakao.sdk.auth.LoginClient;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
@@ -32,10 +35,13 @@ import java.util.Arrays;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
+
+
 public class LoginActivity extends AppCompatActivity {
 
     CallbackManager callbackManager;
     LoginButton fbLoginButton;
+
 
 
     @Override
@@ -48,44 +54,58 @@ public class LoginActivity extends AppCompatActivity {
         Log.i("KeyHash", keyHash);
 
         //페이스북
-        FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
 
-        fbLoginButton = (LoginButton) findViewById(R.id.login_button);
-       // fbLoginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends"));
-
-        FaceBookLogin();
-    }
-
-    void FaceBookLogin(){
+        fbLoginButton = findViewById(R.id.login_button);
+        fbLoginButton.setReadPermissions(Arrays.asList("public_profile","email"));
         fbLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                GraphRequest graphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-                        Toast.makeText(LoginActivity.this, "Successful", Toast.LENGTH_SHORT).show(); 
+                        Log.i("Log", object.toString());
+                        try {
+                            String name = object.getString("name");
+                            JSONObject jo =object.getJSONObject("picture");
+                            JSONObject data = jo.getJSONObject("data");
+                            String url = data.getString("url");
+                            Log.i("Log",name+":"+url);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Toast.makeText(LoginActivity.this, "응답", Toast.LENGTH_SHORT).show();
                     }
                 });
+                Bundle bundle = new Bundle();
+                bundle.putString("fields", "id,name,email,picture");
+                graphRequest.setParameters(bundle);
+                graphRequest.executeAsync();
+
+
+
             }
 
             @Override
             public void onCancel() {
-                Toast.makeText(LoginActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "로그인 취소", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onError(FacebookException error) {
-
+                Toast.makeText(LoginActivity.this, "로그인 실패:"+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
 
+
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     //카카오톡
@@ -100,8 +120,13 @@ public class LoginActivity extends AppCompatActivity {
                         
                         if (oAuthToken != null){
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                            long id = user.getId();
 
+                            String nickName = user.getKakaoAccount().getProfile().getNickname();
+                            String profilUrl = user.getKakaoAccount().getProfile().getThumbnailImageUrl();
 
+                            Login.nickName = nickName;
+                            Login.profileUrl = profilUrl;
 
                         }else {
                             Toast.makeText(LoginActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
