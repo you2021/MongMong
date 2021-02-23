@@ -84,10 +84,6 @@ public class InformationFragment extends Fragment {
                 UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
                     @Override
                     public Unit invoke(Throwable throwable) {
-                        if (throwable !=null)
-                            Toast.makeText(getActivity(), "로그아웃 실패", Toast.LENGTH_SHORT).show();
-                        else{
-                            Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();
 
                             Login.nickName = null;
                             Login.profileUrl = null;
@@ -96,7 +92,7 @@ public class InformationFragment extends Fragment {
                             Glide.with(getActivity()).load(Login.profileUrl).into(circle);
                             Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
-                        }
+
                         return null;
                     }
                 });

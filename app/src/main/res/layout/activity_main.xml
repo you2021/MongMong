@@ -9,22 +9,22 @@
     android:id="@+id/layout_drawer">
 
     <!-- 제목 줄 -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            style="@style/ToolbarStyle">
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            style="@style/ToolbarStyle">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MongMong"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="24sp"
-                android:textColor="@color/black"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="MongMong"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="24sp"-->
+<!--                android:textColor="@color/black"/>-->
 
-        </androidx.appcompat.widget.Toolbar>
+<!--        </androidx.appcompat.widget.Toolbar>-->
 
     <!-- 콘텐츠 -->
         <RelativeLayout

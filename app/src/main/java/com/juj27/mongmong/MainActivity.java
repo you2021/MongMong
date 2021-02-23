@@ -42,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, permissions, 100);
         }
 
+
+
         //툴바 제목줄 대체
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         //제목글씨 보이지않도록
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        //알림설정 하기
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_notifications_24);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setDisplayShowTitleEnabled(false);
+//        //알림설정 하기
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setHomeAsUpIndicator(R.drawable.ic_notifications_24);
 
         //BattomNavigationView 설정
         fragmentManager = getSupportFragmentManager();
@@ -118,27 +120,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //OptionMenu 설정정
-   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.option_main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()){
-            case R.id.search:
-                Toast.makeText(this, "aaa", Toast.LENGTH_SHORT).show();
-                break;
-                
-            case android.R.id.home:
-
-                Intent intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//   @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = this.getMenuInflater();
+//        inflater.inflate(R.menu.option_main, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        switch (item.getItemId()){
+//            case R.id.search:
+//                Toast.makeText(this, "aaa", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case android.R.id.home:
+//
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                startActivity(intent);
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }

@@ -89,17 +89,11 @@ public class LoginActivity extends AppCompatActivity {
                 bundle.putString("fields", "id,name,email,picture");
                 graphRequest.setParameters(bundle);
                 graphRequest.executeAsync();
-
-
-
             }
-
             @Override
             public void onCancel() {
                 Toast.makeText(LoginActivity.this, "로그인 취소", Toast.LENGTH_SHORT).show();
-
             }
-
             @Override
             public void onError(FacebookException error) {
                 Toast.makeText(LoginActivity.this, "로그인 실패:"+error.getMessage(), Toast.LENGTH_SHORT).show();
@@ -135,6 +129,9 @@ public class LoginActivity extends AppCompatActivity {
 
                             Login.nickName = nickName;
                             Login.profileUrl = profilUrl;
+
+                            Intent intent = new Intent(LoginActivity.this, NoticeActivity.class);
+                            startActivity(intent);
 
                         }else {
                             Toast.makeText(LoginActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
