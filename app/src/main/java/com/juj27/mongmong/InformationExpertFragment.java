@@ -7,11 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
+import com.kakao.sdk.user.UserApiClient;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class InformationExpertFragment extends Fragment {
 
@@ -49,6 +57,44 @@ public class InformationExpertFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),ListEditActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        //로그인 시 이미지 닉네임 가져오기
+        CircleImageView circle;
+        TextView tvNick;
+        circle = view.findViewById(R.id.circle);
+        tvNick = view.findViewById(R.id.et_nick);
+
+        tvNick.setText(Login.nickName);
+        Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+
+        TextView logout;
+        logout = view.findViewById(R.id.expert_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+
+                        if (throwable !=null)
+                            Toast.makeText(getActivity(), "로그아웃 실패", Toast.LENGTH_SHORT).show();
+                        else{
+                            Toast.makeText(getActivity(), "로그아웃", Toast.LENGTH_SHORT).show();
+
+                            Login.nickName = null;
+                            Login.profileUrl = null;
+
+                            tvNick.setText(Login.nickName);
+                            Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
+
+                        }
+                        return null;
+                    }
+                });
             }
         });
 

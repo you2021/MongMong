@@ -72,6 +72,13 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject data = jo.getJSONObject("data");
                             String url = data.getString("url");
                             Log.i("Log",name+":"+url);
+
+                            Login.nickName= name;
+                            Login.profileUrl = url;
+
+                            Intent intent = new Intent(LoginActivity.this, NoticeActivity.class);
+                            startActivity(intent);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -96,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Toast.makeText(LoginActivity.this, "로그인 실패:"+error.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.i("LOG",error.getMessage());
             }
         });
 

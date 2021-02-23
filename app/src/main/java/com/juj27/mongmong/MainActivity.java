@@ -28,7 +28,7 @@ import com.kakao.sdk.common.util.Utility;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bnv;
-    Fragment[] fragments = new Fragment[5];
+    Fragment[] fragments = new Fragment[6];
     FragmentManager fragmentManager;
 
     @Override
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 if(fragments[2] !=null) tran.hide(fragments[2]);
                 if(fragments[3] !=null) tran.hide(fragments[3]);
                 if(fragments[4] !=null) tran.hide(fragments[4]);
+                if(fragments[5] !=null) tran.hide(fragments[5]);
 
                 switch (item.getItemId()){
                     case  R.id.bnv_home:
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                             fragments[4]= new InformationExpertFragment();
                             tran.add(R.id.container, fragments[4]);
                             tran.hide(fragments[4]);
+
                         }
                         tran.show(fragments[3]);
                         break;

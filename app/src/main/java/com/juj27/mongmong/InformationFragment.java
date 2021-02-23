@@ -71,7 +71,6 @@ public class InformationFragment extends Fragment {
         circle = view.findViewById(R.id.circle);
         tvNick = view.findViewById(R.id.et_nick);
 
-
         tvNick.setText(Login.nickName);
         Glide.with(getActivity()).load(Login.profileUrl).into(circle);
 
@@ -95,6 +94,7 @@ public class InformationFragment extends Fragment {
 
                             tvNick.setText(Login.nickName);
                             Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
                         }
                         return null;
