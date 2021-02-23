@@ -42,19 +42,6 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, permissions, 100);
         }
 
-
-
-        //툴바 제목줄 대체
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-        //제목글씨 보이지않도록
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.setDisplayShowTitleEnabled(false);
-//        //알림설정 하기
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        actionBar.setHomeAsUpIndicator(R.drawable.ic_notifications_24);
-
         //BattomNavigationView 설정
         fragmentManager = getSupportFragmentManager();
 
@@ -81,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case  R.id.bnv_home:
                         tran.show(fragments[0]);
+
+                        fragments[5] = new NoticeFragment();
+                        tran.add(R.id.container, fragments[5]);
+                        tran.hide(fragments[5]);
                         break;
 
                     case  R.id.bnv_message:
@@ -103,14 +94,15 @@ public class MainActivity extends AppCompatActivity {
                         if(fragments[3] == null){
                             fragments[3] = new InformationFragment();
                             tran.add(R.id.container, fragments[3]);
+                            tran.hide(fragments[3]);
 
                             //전문가모드 추가 및 시작은 안보이도록
                             fragments[4]= new InformationExpertFragment();
                             tran.add(R.id.container, fragments[4]);
                             tran.hide(fragments[4]);
-
                         }
-                        tran.show(fragments[3]);
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
                         break;
                 }
                 tran.commit();
@@ -119,28 +111,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //OptionMenu 설정정
-//   @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = this.getMenuInflater();
-//        inflater.inflate(R.menu.option_main, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//        switch (item.getItemId()){
-//            case R.id.search:
-//                Toast.makeText(this, "aaa", Toast.LENGTH_SHORT).show();
-//                break;
-//
-//            case android.R.id.home:
-//
-//                Intent intent = new Intent(this, LoginActivity.class);
-//                startActivity(intent);
-//                break;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }

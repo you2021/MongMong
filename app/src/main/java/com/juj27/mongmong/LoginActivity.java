@@ -2,6 +2,7 @@ package com.juj27.mongmong;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     LoginButton fbLoginButton;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                             Login.nickName= name;
                             Login.profileUrl = url;
 
-                            Intent intent = new Intent(LoginActivity.this, NoticeActivity.class);
-                            startActivity(intent);
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -89,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                 bundle.putString("fields", "id,name,email,picture");
                 graphRequest.setParameters(bundle);
                 graphRequest.executeAsync();
+
             }
             @Override
             public void onCancel() {
@@ -130,8 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                             Login.nickName = nickName;
                             Login.profileUrl = profilUrl;
 
-                            Intent intent = new Intent(LoginActivity.this, NoticeActivity.class);
-                            startActivity(intent);
+
 
                         }else {
                             Toast.makeText(LoginActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();

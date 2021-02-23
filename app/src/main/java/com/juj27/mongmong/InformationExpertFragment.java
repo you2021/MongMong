@@ -61,10 +61,13 @@ public class InformationExpertFragment extends Fragment {
         });
 
         //로그인 시 이미지 닉네임 가져오기
-        CircleImageView circle;
-        TextView tvNick;
-        circle = view.findViewById(R.id.circle);
-        tvNick = view.findViewById(R.id.et_nick);
+        CircleImageView circle, circle2;
+        TextView tvNick, tvNick2;
+
+
+        circle = view.findViewById(R.id.expert_circle);
+        tvNick = view.findViewById(R.id.et_nick2);
+
 
         tvNick.setText(Login.nickName);
         Glide.with(getActivity()).load(Login.profileUrl).into(circle);
@@ -85,6 +88,7 @@ public class InformationExpertFragment extends Fragment {
                             tvNick.setText(Login.nickName);
                             Glide.with(getActivity()).load(Login.profileUrl).into(circle);
                             Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
+
 
 
                         return null;

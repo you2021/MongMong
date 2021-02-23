@@ -16,7 +16,7 @@
         android:layout_marginBottom="16dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circle"
+        android:id="@+id/expert_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_below="@id/tv"
@@ -29,17 +29,17 @@
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@id/circle"
-        android:layout_alignRight="@id/circle"
+        android:layout_alignTop="@id/expert_circle"
+        android:layout_alignRight="@id/expert_circle"
         android:src="@drawable/expert"/>
 
     <TextView
-        android:id="@+id/et_nick"
+        android:id="@+id/et_nick2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="닉네임"
         android:textSize="40dp"
-        android:layout_below="@id/circle"
+        android:layout_below="@id/expert_circle"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:inputType="text"
@@ -50,7 +50,7 @@
         android:id="@+id/liner_expert"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_nick"
+        android:layout_below="@id/et_nick2"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:background="@drawable/bg_edit"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:text="등록"
         android:textSize="30dp"
-        android:layout_below="@id/et_nick"
+        android:layout_below="@id/et_nick2"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginTop="50dp"

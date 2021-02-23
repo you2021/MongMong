@@ -68,6 +68,7 @@ public class InformationFragment extends Fragment {
         //로그인 시 이미지 닉네임 가져오기
         CircleImageView circle;
         TextView tvNick;
+
         circle = view.findViewById(R.id.circle);
         tvNick = view.findViewById(R.id.et_nick);
 

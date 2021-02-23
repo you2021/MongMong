@@ -19,7 +19,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".CategoryListActivity"></activity>
         <activity android:name=".ListEditActivity" />
-        <activity android:name=".NoticeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
