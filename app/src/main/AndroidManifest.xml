@@ -16,10 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MongMong"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NoticeActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".RequestActivity"></activity>
+        <activity
+            android:name=".NoticeActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".CategoryListActivity" />
-        <activity android:name=".CategoryListITActivity"/>
+        <activity android:name=".CategoryListITActivity" />
         <activity android:name=".ListEditActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

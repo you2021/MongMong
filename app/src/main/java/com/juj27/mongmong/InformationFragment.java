@@ -62,14 +62,13 @@ public class InformationFragment extends Fragment {
         tvRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(getActivity(), ListEditActivity.class);
+               Intent intent = new Intent(getActivity(), RequestActivity.class);
                startActivity(intent);
 
             }
         });
 
         //로그인 시 이미지 닉네임 가져오기
-
 
         circle = view.findViewById(R.id.circle);
         tvNick = view.findViewById(R.id.et_nick);

@@ -1,6 +1,9 @@
 package com.juj27.mongmong;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
@@ -99,8 +103,34 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                 }
             });
 
-
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       show();
+                    }
+                });
         }
+    }
+
+    void show(){
+        final  ArrayList<String> list = new ArrayList<>();
+        list.add("의뢰하기");
+        list.add("메세지보내기");
+        final CharSequence[] items = list.toArray(new String[list.size()]);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(items[which] == items[0]){
+                    Intent intent = new Intent(context, RequestActivity.class);
+                    context.startActivity(intent);
+                }else {
+                    Toast.makeText(context, items[1].toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.show();
     }
 
 
