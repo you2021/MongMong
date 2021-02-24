@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemberActivity"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/mamber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:hint="ID 입력해주세요"
+        android:layout_below="@id/mamber"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="16dp"
+        android:layout_marginTop="80dp"/>
+
+    <EditText
+        android:id="@+id/PW"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/ID"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:inputType="textPassword"
+        android:hint="PW 입력하세요"
+        android:maxLines="1"
+        android:padding="16dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PW"
+        android:layout_centerInParent="true"
+        android:text="가입"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="10dp"
+        android:onClick="clickJoin"/>
+
+</RelativeLayout>

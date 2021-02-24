@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.facebook.login.LoginManager;
 import com.kakao.sdk.user.UserApiClient;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -103,11 +104,14 @@ public class InformationFragment extends Fragment {
                     }
                 });
 
+                LoginManager.getInstance().logOut();
+
             }
 
         });
 
     }
+
       @Override
     public void onResume() {
         super.onResume();

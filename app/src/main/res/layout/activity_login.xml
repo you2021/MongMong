@@ -42,7 +42,8 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:inputType="text"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -70,8 +71,9 @@
             android:layout_below="@id/tv_login"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:inputType="numberPassword"
-            android:maxLines="1"/>
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="16dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -84,13 +86,14 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/btn_join"
+            android:id="@+id/btn_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회원가입"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:onClick="clickMember"/>
 
         <Button
             android:id="@+id/btn_login"
@@ -133,7 +136,7 @@
             android:id="@+id/login_button"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"/>
+            android:layout_marginLeft="15dp" />
     </LinearLayout>
 
 
