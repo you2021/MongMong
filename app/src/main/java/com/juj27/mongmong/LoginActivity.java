@@ -1,12 +1,15 @@
 package com.juj27.mongmong;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -75,6 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                             Login.nickName= name;
                             Login.profileUrl = url;
 
+                            setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
+                            finish();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -127,13 +133,12 @@ public class LoginActivity extends AppCompatActivity {
                             Login.nickName = nickName;
                             Login.profileUrl = profilUrl;
 
-
+                            setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
+                            finish();
 
                         }else {
                             Toast.makeText(LoginActivity.this, "로그인 실패"+throwable.getMessage(), Toast.LENGTH_SHORT).show();
-
                         }
-                        
                         return null;
                     }
                 });

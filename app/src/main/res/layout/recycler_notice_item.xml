@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="16dp">
 
     <TextView
@@ -34,7 +34,7 @@
         android:layout_below="@id/tv_day"
         android:layout_toRightOf="@id/circle_notice"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/tv_time"

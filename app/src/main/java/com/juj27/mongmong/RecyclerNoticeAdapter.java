@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RecyclerNoticeAdapter extends RecyclerView.Adapter<RecyclerNoticeAdapter.VH> {
+public class RecyclerNoticeAdapter extends RecyclerView.Adapter {
 
     Context context;
     ArrayList<RecyclerNoticeItem> items;
@@ -23,17 +23,18 @@ public class RecyclerNoticeAdapter extends RecyclerView.Adapter<RecyclerNoticeAd
         this.items = items;
     }
 
+
     @NonNull
     @Override
-    public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.recycler_notice_item, parent,false);
-        VH vh = new VH(itemView);
-
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_notice_item,parent,false);
+        VH vh = new VH(view);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VH holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        VH vh = (VH)holder;
         RecyclerNoticeItem item = items.get(position);
 
     }
@@ -43,22 +44,15 @@ public class RecyclerNoticeAdapter extends RecyclerView.Adapter<RecyclerNoticeAd
         return items.size();
     }
 
-    class VH extends RecyclerView.ViewHolder {
 
-//        TextView tvDay, tvSay, tvTime;
-//        CircleImageView iv;
+
+    class VH extends RecyclerView.ViewHolder{
 
         public VH(@NonNull View itemView) {
             super(itemView);
 
-//            tvDay= itemView.findViewById(R.id.tv_day);
-//            tvSay= itemView.findViewById(R.id.tv_say);
-//            tvTime= itemView.findViewById(R.id.tv_time);
-//            iv= itemView.findViewById(R.id.circle_notice);
 
 
         }
     }
-
-
 }

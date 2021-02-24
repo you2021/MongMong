@@ -1,6 +1,7 @@
 package com.juj27.mongmong;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,10 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case  R.id.bnv_home:
                         tran.show(fragments[0]);
-
-                        fragments[5] = new NoticeFragment();
-                        tran.add(R.id.container, fragments[5]);
-                        tran.hide(fragments[5]);
                         break;
 
                     case  R.id.bnv_message:
@@ -91,18 +88,27 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case  R.id.bnv_information:
+
                         if(fragments[3] == null){
                             fragments[3] = new InformationFragment();
                             tran.add(R.id.container, fragments[3]);
                             tran.hide(fragments[3]);
+
 
                             //전문가모드 추가 및 시작은 안보이도록
                             fragments[4]= new InformationExpertFragment();
                             tran.add(R.id.container, fragments[4]);
                             tran.hide(fragments[4]);
                         }
-                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivity(intent);
+
+                        if(Login.nickName!=null){
+                            tran.show(fragments[3]);
+                        }else{
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivityForResult(intent, 100);
+                        }
+
+
                         break;
                 }
                 tran.commit();
@@ -111,4 +117,27 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        if(Login.nickName == null){
+//            bnv.setSelectedItemId(R.id.bnv_home);
+//        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case 100:
+                if(resultCode==RESULT_OK){//로그인을 했다면..
+                    //Toast.makeText(this, "결과OK", Toast.LENGTH_SHORT).show();
+                    bnv.setSelectedItemId(R.id.bnv_information);
+                }else{
+                    bnv.setSelectedItemId(R.id.bnv_home);
+                }
+                break;
+        }
+    }
 }

@@ -1,34 +1,29 @@
 package com.juj27.mongmong;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-
-public class CategoryListActivity extends AppCompatActivity {
+public class CategoryListITActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager pager;
-    CategoryPagerAdapter adapter;
+    CategoryITPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_list);
+        setContentView(R.layout.activity_category_list_it);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -36,9 +31,11 @@ public class CategoryListActivity extends AppCompatActivity {
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setDisplayHomeAsUpEnabled(true);
 
-        tabLayout = findViewById(R.id.layout_tab);
-        pager = findViewById(R.id.pager);
-        adapter = new CategoryPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+
+
+        tabLayout = findViewById(R.id.tab_it);
+        pager = findViewById(R.id.pager_it);
+        adapter = new CategoryITPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         pager.setAdapter(adapter);
 
         tabLayout.setupWithViewPager(pager);
@@ -56,7 +53,7 @@ public class CategoryListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId()==android.R.id.home){
-            onBackPressed();
+           onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }

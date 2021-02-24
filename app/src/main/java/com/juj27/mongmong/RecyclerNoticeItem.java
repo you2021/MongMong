@@ -1,7 +1,7 @@
 package com.juj27.mongmong;
 
 public class RecyclerNoticeItem {
-    String imgUrl;
+    String ImgUrl;
     String Day;
     String Say;
     String Time;
@@ -10,7 +10,7 @@ public class RecyclerNoticeItem {
     }
 
     public RecyclerNoticeItem(String imgUrl, String day, String say, String time) {
-        this.imgUrl = imgUrl;
+        ImgUrl = imgUrl;
         Day = day;
         Say = say;
         Time = time;

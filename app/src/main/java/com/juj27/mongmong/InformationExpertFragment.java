@@ -23,6 +23,9 @@ import kotlin.jvm.functions.Function1;
 
 public class InformationExpertFragment extends Fragment {
 
+    CircleImageView circle;
+    TextView tvNick;
+
     @Nullable
     @Override
     //화면보이지는것
@@ -61,16 +64,8 @@ public class InformationExpertFragment extends Fragment {
         });
 
         //로그인 시 이미지 닉네임 가져오기
-        CircleImageView circle, circle2;
-        TextView tvNick, tvNick2;
-
-
         circle = view.findViewById(R.id.expert_circle);
         tvNick = view.findViewById(R.id.et_nick2);
-
-
-        tvNick.setText(Login.nickName);
-        Glide.with(getActivity()).load(Login.profileUrl).into(circle);
 
         TextView logout;
         logout = view.findViewById(R.id.expert_logout);
@@ -85,21 +80,25 @@ public class InformationExpertFragment extends Fragment {
                             Login.nickName = null;
                             Login.profileUrl = null;
 
-                            tvNick.setText(Login.nickName);
-                            Glide.with(getActivity()).load(Login.profileUrl).into(circle);
                             Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
+                        Intent intent = new Intent(getActivity(),MainActivity.class);
+                        startActivity(intent);
 
+                        getActivity().finish();
 
                         return null;
                     }
                 });
             }
         });
+    }
 
-
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        tvNick.setText(Login.nickName);
+        Glide.with(getActivity()).load(Login.profileUrl).into(circle);
 
     }
 }

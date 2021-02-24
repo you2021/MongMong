@@ -13,7 +13,8 @@ import androidx.fragment.app.Fragment;
 
 public class CategoryFragment extends Fragment {
 
-    ImageView ivDe;
+    ImageView ivDe, ivIt;
+
 
     @Nullable
     @Override
@@ -26,11 +27,20 @@ public class CategoryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ivDe = view.findViewById(R.id.de);
+        ivIt = view.findViewById(R.id.it);
 
         ivDe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),CategoryListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListITActivity.class);
                 startActivity(intent);
             }
         });

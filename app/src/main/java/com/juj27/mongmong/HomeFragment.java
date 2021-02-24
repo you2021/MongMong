@@ -1,6 +1,7 @@
 package com.juj27.mongmong;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -76,12 +77,30 @@ public class HomeFragment extends Fragment {
             case android.R.id.home:
                 Toast.makeText(getActivity(), "bbb", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                if (Login.nickName !=null ){
+                    Intent intent = new Intent(getActivity(), NoticeActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivityForResult(intent,REQUEST_CODE);
+                }
 
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public  static final int REQUEST_CODE = 11;
+
+    //Intent 결과
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE  && resultCode == Activity.RESULT_OK ){
+            Toast.makeText(getActivity(), "결과OK", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), NoticeActivity.class);
+            startActivity(intent);
+        }
     }
 
     //서버에서 데이커를 불러오는 기능메소드
