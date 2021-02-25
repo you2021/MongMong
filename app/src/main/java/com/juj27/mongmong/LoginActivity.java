@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -45,6 +46,7 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
@@ -52,6 +54,7 @@ import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Context context;
     CallbackManager callbackManager;
     LoginButton fbLoginButton;
 
@@ -59,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
     String pw;
 
     EditText etId, etPw;
+
+    Login login = new Login();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,6 +174,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    //로그인
     public void clickLogin(View view) {
         id=etId.getText().toString();
         pw=etPw.getText().toString();
@@ -189,9 +196,19 @@ public class LoginActivity extends AppCompatActivity {
                 String str = dataSnapshot.getValue(String.class );
                 if (pw.equals(str)){
                     Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                    Login.ID = id;
+
+                    CircleImageView ccccc = findViewById(R.id.circle);
+                    CircleImageView cccc = findViewById(R.id.expert_circle);
+                    login.ID = id;
+                    login.PW = pw;
+
+                    Login.nickName = id;
+//                    Glide.with(LoginActivity.this).load(R.drawable.ic_person_24).into(ccccc);
+//                    Glide.with(LoginActivity.this).load(R.drawable.ic_person_24).into(cccc);
+
 
                     setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
+
                     finish();
 
                 }else {

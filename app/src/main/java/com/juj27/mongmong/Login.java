@@ -5,6 +5,14 @@ public class Login {
     public static String nickName;
     public static String profileUrl;
 
-    public static String ID;
-    public static String PW;
+    public String ID;
+    public String PW;
+
+    public Login() {
+    }
+
+    public Login(String ID, String PW) {
+        this.ID = ID;
+        this.PW = PW;
+    }
 }

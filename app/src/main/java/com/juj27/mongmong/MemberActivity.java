@@ -23,6 +23,7 @@ import java.util.zip.Inflater;
 public class MemberActivity extends AppCompatActivity {
 
     EditText etID, etPW;
+    Login login = new Login();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class MemberActivity extends AppCompatActivity {
             public void onSuccess(Void aVoid) {
                 Toast.makeText(MemberActivity.this, "회원가입이 되었습니다.", Toast.LENGTH_SHORT).show();
 
-                Login.ID = id;
+                login.ID = id;
                 Intent intent = new Intent(MemberActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
