@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"/>
 
     <EditText
-        android:id="@+id/ID"
+        android:id="@+id/et_id"
         android:layout_width="250dp"
         android:layout_height="80dp"
         android:hint="ID 입력해주세요"
@@ -33,10 +33,10 @@
         android:layout_marginTop="80dp"/>
 
     <EditText
-        android:id="@+id/PW"
+        android:id="@+id/et_pw"
         android:layout_width="250dp"
         android:layout_height="80dp"
-        android:layout_below="@id/ID"
+        android:layout_below="@id/et_id"
         android:layout_centerInParent="true"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -48,7 +48,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/PW"
+        android:layout_below="@id/et_pw"
         android:layout_centerInParent="true"
         android:text="가입"
         android:textColor="@color/black"

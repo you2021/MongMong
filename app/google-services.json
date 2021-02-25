@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055276544862",
+    "project_id": "mongmong2021-4c51c",
+    "storage_bucket": "mongmong2021-4c51c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055276544862:android:09aff738e61b0f834915cf",
+        "android_client_info": {
+          "package_name": "com.juj27.mongmong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055276544862-t2s3dvp8o7kk4mcls9r74cutab64ng40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyd55AFw7TmDJMZL4O72HA690RGp2_Nuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055276544862-t2s3dvp8o7kk4mcls9r74cutab64ng40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
