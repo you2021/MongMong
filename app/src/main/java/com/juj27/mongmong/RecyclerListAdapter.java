@@ -126,7 +126,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                     Intent intent = new Intent(context, RequestActivity.class);
                     context.startActivity(intent);
                 }else {
-                    Toast.makeText(context, items[1].toString(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, MessageActivity.class);
+                    context.startActivity(intent);
                 }
             }
         });

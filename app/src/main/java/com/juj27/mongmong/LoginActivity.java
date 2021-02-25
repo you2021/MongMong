@@ -197,15 +197,10 @@ public class LoginActivity extends AppCompatActivity {
                 if (pw.equals(str)){
                     Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
 
-                    CircleImageView ccccc = findViewById(R.id.circle);
-                    CircleImageView cccc = findViewById(R.id.expert_circle);
                     login.ID = id;
                     login.PW = pw;
 
-                    Login.nickName = id;
-//                    Glide.with(LoginActivity.this).load(R.drawable.ic_person_24).into(ccccc);
-//                    Glide.with(LoginActivity.this).load(R.drawable.ic_person_24).into(cccc);
-
+                    Login.nickName = login.ID;
 
                     setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
 

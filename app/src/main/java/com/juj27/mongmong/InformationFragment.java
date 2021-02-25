@@ -28,6 +28,8 @@ public class InformationFragment extends Fragment {
     CircleImageView circle;
     TextView tvNick;
 
+    Login login = new Login();
+
     @Nullable
     @Override
     //화면보이지는것
@@ -74,9 +76,6 @@ public class InformationFragment extends Fragment {
         circle = view.findViewById(R.id.circle);
         tvNick = view.findViewById(R.id.et_nick);
 
-        tvNick.setText(Login.nickName);
-        Glide.with(getActivity()).load(Login.profileUrl).into(circle);
-
         //로그아웃
         TextView logout;
         logout = view.findViewById(R.id.client_logout);
@@ -89,9 +88,9 @@ public class InformationFragment extends Fragment {
                     public Unit invoke(Throwable throwable) {
 
                             Login.nickName = null;
-                            Login.profileUrl = null;
-
-                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
+//                            Login.profileUrl = null;
+//
+//                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
                             Intent intent = new Intent(getActivity(),MainActivity.class);
                             startActivity(intent);
@@ -104,9 +103,6 @@ public class InformationFragment extends Fragment {
 
                 //페이스북
                 LoginManager.getInstance().logOut();
-
-
-
             }
 
         });
@@ -118,5 +114,9 @@ public class InformationFragment extends Fragment {
         super.onResume();
         tvNick.setText(Login.nickName);
         Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+
+        if(Login.nickName == login.ID){
+            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
+        }
     }
 }

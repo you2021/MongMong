@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MongMong"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MemberActivity"></activity>
+        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".MemberActivity" />
         <activity android:name=".RequestActivity" />
         <activity
             android:name=".NoticeActivity"

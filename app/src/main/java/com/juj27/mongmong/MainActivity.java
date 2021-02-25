@@ -75,8 +75,14 @@ public class MainActivity extends AppCompatActivity {
                         if(fragments[1] == null){
                             fragments[1] = new MessageFragment();
                             tran.add(R.id.container, fragments[1]);
+                            tran.hide(fragments[1]);
                         }
-                        tran.show(fragments[1]);
+                        if(Login.nickName!=null){
+                            tran.show(fragments[1]);
+                        }else{
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivityForResult(intent, 50);
+                        }
                         break;
 
                     case  R.id.bnv_category:
@@ -130,6 +136,16 @@ public class MainActivity extends AppCompatActivity {
                     bnv.setSelectedItemId(R.id.bnv_home);
                 }
                 break;
+
+            case 50:
+                if(resultCode==RESULT_OK){//로그인을 했다면..
+                    //Toast.makeText(this, "결과OK", Toast.LENGTH_SHORT).show();
+                    bnv.setSelectedItemId(R.id.bnv_message);
+                }else{
+                    bnv.setSelectedItemId(R.id.bnv_home);
+                }
+                break;
+
         }
     }
 }
