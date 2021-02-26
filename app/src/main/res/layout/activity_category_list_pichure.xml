@@ -8,14 +8,14 @@
     android:padding="8dp">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IT.프래그래밍"
+            android:text="영상.사진.음량"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="@color/black"
@@ -24,18 +24,18 @@
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_it"
+        android:id="@+id/tab_picture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"/>
+        android:layout_below="@id/toolbar_picture"/>
 
 
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/pager_it"
+        android:id="@+id/pager_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tab_it">
+        android:layout_below="@id/tab_picture">
 
 
     </androidx.viewpager.widget.ViewPager>

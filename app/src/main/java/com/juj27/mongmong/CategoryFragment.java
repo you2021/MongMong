@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 public class CategoryFragment extends Fragment {
 
-    ImageView ivDe, ivIt;
+    ImageView ivDe, ivIt, ivPho, ivMa, ivTran, ivDocu, ivOr, ivLe, ivBook, ivJob, ivBu;
 
 
     @Nullable
@@ -28,6 +28,15 @@ public class CategoryFragment extends Fragment {
 
         ivDe = view.findViewById(R.id.de);
         ivIt = view.findViewById(R.id.it);
+        ivPho = view.findViewById(R.id.pho);
+        ivMa = view.findViewById(R.id.ma);
+        ivTran = view.findViewById(R.id.tran);
+        ivDocu = view.findViewById(R.id.docu);
+        ivOr = view.findViewById(R.id.or);
+        ivLe = view.findViewById(R.id.le);
+        ivBook = view.findViewById(R.id.book);
+        ivJob = view.findViewById(R.id.job);
+        ivBu = view.findViewById(R.id.bu);
 
         ivDe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +50,78 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),CategoryListITActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivPho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListPictureActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivMa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListMarketingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivTran.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListTranslationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivDocu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListDocumentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivOr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivLe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListLessonActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListBookActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivJob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListJobActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivBu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),CategoryListBusinessActivity.class);
                 startActivity(intent);
             }
         });

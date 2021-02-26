@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="MESSAGE"
         android:textSize="50sp"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 

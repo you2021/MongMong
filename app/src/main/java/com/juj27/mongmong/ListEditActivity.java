@@ -43,19 +43,18 @@ public class ListEditActivity extends AppCompatActivity {
 
     Spinner spinner, spinner2;
     String[][] subCategories = new String[][]{
-            {"선택"},
-        {"aa","bb","aff","aafd","asda"},
-        {"a4546a","b123b","af1231f","53aafd","a3sda"},
-        {"4546a","b123b","af1231f","53aafd","a3sda"},
-        {"a446a","b123b","af1231f","53aafd","a3sda"},
-        {"a","b123b","af1231f","53aafd","a3sda"},
-        {"46a","b123b","af1231f","53aafd","a3sda"},
-        {"6a","b123b","af1231f","53aafd","a3sda"},
-        {"546a","b123b","af1231f","53aafd"},
-        {"a4546a","b123b","af1231f"},
-        {"a4546a","b123b","af1231f","53aafd","a3sda"},
-        {"a4546a","b123b","53aafd","a3sda"},
-        {"af1231f","53aafd","a3sda"}
+         {"선택"},
+        {"로고","이벤트 페이지","인쇄","모바일 디자인"},
+        {"워드프레스","웹사이트 개발","모바일 앱","게임"},
+        {"영상촬영","유투브 제작","애니메이션","3D"},
+        {"종합 광고 대행","블로그","SNS 마케팅","쇼핑몰"},
+        {"산업별 전문번역","일반 번역","통역","영상번역"},
+        {"기업 명","제품 카피라이팅","광고 카피라이팅","마케팅 글작성"},
+        {"인쇄","간판","기념품 제작","모형 제작"},
+        {"사진","프로그래밍","데이터분석","외국어(영어)"},
+        {"투잡","기술","취업","취미"},
+        {"직무 멘토링","자소서","이력서(외국계)","이력서(국내기업)"},
+        {"사업계획서","창업컨설팅","업종별 컨설팅","크라우드펀딩"}
     };
 
     @Override
@@ -81,13 +80,9 @@ public class ListEditActivity extends AppCompatActivity {
 
                 ArrayAdapter adapter = new ArrayAdapter(ListEditActivity.this, R.layout.spinner_selected,subCategories[position]);
                 spinner2.setAdapter(adapter);
-
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -107,7 +102,6 @@ public class ListEditActivity extends AppCompatActivity {
             Uri uri = data.getData();
             if(uri!=null) {
                 Glide.with(this).load(uri).into(iv);
-
                 imgPath = getRealPathFromUri(uri);
 
 //                new AlertDialog.Builder(this).setMessage(imgPath).show();

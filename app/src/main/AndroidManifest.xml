@@ -24,6 +24,15 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".CategoryListActivity" />
         <activity android:name=".CategoryListITActivity" />
+        <activity android:name=".CategoryListPictureActivity" />
+        <activity android:name=".CategoryListMarketingActivity" />
+        <activity android:name=".CategoryListTranslationActivity" />
+        <activity android:name=".CategoryListDocumentActivity" />
+        <activity android:name=".CategoryListOrderActivity" />
+        <activity android:name=".CategoryListLessonActivity" />
+        <activity android:name=".CategoryListBookActivity" />
+        <activity android:name=".CategoryListJobActivity" />
+        <activity android:name=".CategoryListBusinessActivity" />
         <activity android:name=".ListEditActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">

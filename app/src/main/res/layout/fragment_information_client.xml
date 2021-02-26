@@ -10,9 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="My Mong"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="55dp"
+        android:textSize="50dp"
         android:layout_marginBottom="16dp"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -22,7 +23,7 @@
         android:layout_below="@id/tv"
         android:background="@drawable/bg_circle"
         android:src="@drawable/ic_person_24"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:clickable="true"/>
 
@@ -78,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_nick"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="100dp"
         android:text="의뢰내역"
         android:textColor="@color/black"
         android:textSize="30dp"

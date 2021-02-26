@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="CATEGORY"
         android:textSize="50sp"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:clickable="true"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/design"
         android:layout_below="@id/tv"
+        android:layout_marginTop="60dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="20dp"
         android:clickable="true"/>
@@ -36,7 +38,8 @@
         android:layout_below="@+id/tv"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
 
     <ImageView
         android:id="@+id/pho"
@@ -47,7 +50,8 @@
         android:layout_toRightOf="@id/it"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:layout_marginTop="60dp"/>
 
     <ImageView
         android:id="@+id/ma"
@@ -134,14 +138,14 @@
         android:layout_marginRight="5dp"
         android:clickable="true"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/order"
-        android:layout_below="@id/book"
-        android:layout_toRightOf="@id/bu"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:clickable="true"/>
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/counseling"-->
+<!--        android:layout_below="@id/book"-->
+<!--        android:layout_toRightOf="@id/bu"-->
+<!--        android:layout_marginLeft="5dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:clickable="true"/>-->
 
 </RelativeLayout>
