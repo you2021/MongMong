@@ -57,6 +57,8 @@ public class CategoryListPage1Fragment extends Fragment {
 
     void loadData(){
 
+
+
             Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
             RetrofitService retrofitService = retrofit.create(RetrofitService.class);
             Call<ArrayList<RecyclerListItem>> call = retrofitService.loadDataFromServer();

@@ -43,7 +43,7 @@ public class ListEditActivity extends AppCompatActivity {
 
     Spinner spinner, spinner2;
     String[][] subCategories = new String[][]{
-         {"선택"},
+            {"선택"},
         {"로고","이벤트 페이지","인쇄","모바일 디자인"},
         {"워드프레스","웹사이트 개발","모바일 앱","게임"},
         {"영상촬영","유투브 제작","애니메이션","3D"},
@@ -76,7 +76,6 @@ public class ListEditActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
 
                 ArrayAdapter adapter = new ArrayAdapter(ListEditActivity.this, R.layout.spinner_selected,subCategories[position]);
                 spinner2.setAdapter(adapter);

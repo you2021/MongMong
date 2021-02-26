@@ -2,6 +2,7 @@ package com.juj27.mongmong;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,10 @@ public class InformationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        circle = view.findViewById(R.id.circle);
+        tvNick = view.findViewById(R.id.et_nick);
+
+
         //전문가 모드로 화면 변경 버튼
         LinearLayout tvChange;
         tvChange = view.findViewById(R.id.liner_client);
@@ -71,10 +76,16 @@ public class InformationFragment extends Fragment {
             }
         });
 
-        //로그인 시 이미지 닉네임 가져오기
+        circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,5);
+            }
+        });
 
-        circle = view.findViewById(R.id.circle);
-        tvNick = view.findViewById(R.id.et_nick);
+
 
         //로그아웃
         TextView logout;
