@@ -8,7 +8,7 @@
     tools:context=".MessageActivity">
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/chatting_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -24,7 +24,7 @@
         android:background="@color/purple_500">
 
         <EditText
-            android:id="@+id/et"
+            android:id="@+id/et_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

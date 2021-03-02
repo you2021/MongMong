@@ -4,6 +4,7 @@ public class Login {
 
     public static String nickName;
     public static String profileUrl;
+    public static ProductVO currentItem = new ProductVO();  //회원가입 시 아이디
 
     public String ID;
     public String PW;

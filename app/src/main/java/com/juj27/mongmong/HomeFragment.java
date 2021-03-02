@@ -72,10 +72,13 @@ public class HomeFragment extends Fragment {
                 switch (item.getItemId()){
             case R.id.search:
                 Toast.makeText(getActivity(), "aaa", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent2);
+
                 break;
 
             case android.R.id.home:
-                Toast.makeText(getActivity(), "bbb", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity(), "bbb", Toast.LENGTH_SHORT).show();
 
                 if (Login.nickName !=null ){
                     Intent intent = new Intent(getActivity(), NoticeActivity.class);

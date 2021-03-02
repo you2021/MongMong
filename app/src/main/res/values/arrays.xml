@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="caterogy">
+    <string-array name="category">
 
         <item>선택</item>
         <item>디자인</item>
@@ -14,6 +14,53 @@
         <item>전자책</item>
         <item>취업 투잡</item>
         <item>비즈니스컨설팅</item>
-        <item>주문제작</item>
+    </string-array>
+
+    <string-array name="search">
+
+        <item>로고</item>
+        <item>이벤트 페이지</item>
+        <item>인쇄</item>
+        <item>모바일 디자인</item>
+        <item>워드프레스</item>
+        <item>웹사이즈 개발</item>
+        <item>모바일 앱</item>
+        <item>게임</item>
+        <item>영상촬영</item>
+        <item>유투브 제작</item>
+        <item>애니메이션</item>
+        <item>3D</item>
+        <item>종합 광고 대행</item>
+        <item>블로그</item>
+        <item>SNS 마케팅</item>
+        <item>쇼핑몰</item>
+        <item>산업별 전문 번역</item>
+        <item>일반 번역</item>
+        <item>통역</item>
+        <item>영상번역</item>
+        <item>기업 명</item>
+        <item>제품 카피라이팅</item>
+        <item>광고 카피라이팅</item>
+        <item>마케팅</item>
+        <item>인쇄</item>
+        <item>간판</item>
+        <item>기념품 제작</item>
+        <item>모형 제작</item>
+        <item>사진</item>
+        <item>프로그래밍</item>
+        <item>데이터 분석</item>
+        <item>외국어(영어)</item>
+        <item>투잡</item>
+        <item>기술</item>
+        <item>취업</item>
+        <item>취미</item>
+        <item>직무 멘토링</item>
+        <item>자소서</item>
+        <item>이력서 (외국계)</item>
+        <item>이력서 (국내기업)</item>
+        <item>사업계획서</item>
+        <item>창업컨설팅</item>
+        <item>업종별 컨설팅</item>
+        <item>크라우드 펀딩</item>
     </string-array>
 </resources>

@@ -198,9 +198,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
 
                     login.ID = id;
-                    login.PW = pw;
-
-                    Login.nickName = login.ID;
+                    Login.nickName = id;
 
                     setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
 

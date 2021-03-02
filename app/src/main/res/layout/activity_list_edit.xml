@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:spinnerMode="dialog"
             android:prompt="@string/prompt"
-            android:entries="@array/caterogy"/>
+            android:entries="@array/category"/>
 
         <Spinner
             android:id="@+id/spinner2"

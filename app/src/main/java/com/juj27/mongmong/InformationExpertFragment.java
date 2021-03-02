@@ -64,14 +64,14 @@ public class InformationExpertFragment extends Fragment {
             }
         });
 
-        circle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setType("image/*");
-                startActivityForResult(intent,6);
-            }
-        });
+//        circle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_PICK);
+//                intent.setType("image/*");
+//                startActivityForResult(intent,6);
+//            }
+//        });
 
         //로그인 시 이미지 닉네임 가져오기
         circle = view.findViewById(R.id.expert_circle);
