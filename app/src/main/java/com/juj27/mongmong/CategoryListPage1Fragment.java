@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,12 +24,20 @@ public class CategoryListPage1Fragment extends Fragment {
     ArrayList<RecyclerListItem> items = new ArrayList<>();
     RecyclerListAdapter adapter;
 
+    String category;
+
+    public CategoryListPage1Fragment(String category) {
+        this.category = category;
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //데이터 불러오기
-        items.add(new RecyclerListItem(1,"ㅇㅇ","","dd","ㅁㅁ","22",0,"233"));
+       // items.add(new RecyclerListItem(1,"ㅇㅇ","","dd","ㅁㅁ","22",0,"233"));
+
+        loadData();
     }
 
     @Override
@@ -57,24 +64,22 @@ public class CategoryListPage1Fragment extends Fragment {
 
     void loadData(){
 
-
-
             Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
             RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-            Call<ArrayList<RecyclerListItem>> call = retrofitService.loadDataFromServer();
+            Call<ArrayList<RecyclerListItem>> call = retrofitService.loadCategoryDataFromServer(category);
             call.enqueue(new Callback<ArrayList<RecyclerListItem>>() {
                 @Override
                 public void onResponse(Call<ArrayList<RecyclerListItem>> call, Response<ArrayList<RecyclerListItem>> response) {
-//                    // 기존데이터들 모두제거
-//                    Items.clear();
-//                    listAdapter.notifyDataSetChanged();;
-//
-//                    //결과로 받아온 item에 추가
-//                    ArrayList<RecyclerListItem> list =  response.body();
-//                    for(RecyclerListItem item : list){
-//                        listItems.add(0,item);
-//                        listAdapter.notifyItemInserted(0);
-//                    }
+                    // 기존데이터들 모두제거
+                    items.clear();
+                    adapter.notifyDataSetChanged();;
+
+                    //결과로 받아온 item에 추가
+                    ArrayList<RecyclerListItem> list =  response.body();
+                    for(RecyclerListItem item : list){
+                        items.add(0,item);
+                        adapter.notifyItemInserted(0);
+                    }
                 }
 
                 @Override

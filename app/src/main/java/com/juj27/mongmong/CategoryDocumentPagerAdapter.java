@@ -13,11 +13,11 @@ public class CategoryDocumentPagerAdapter extends FragmentPagerAdapter {
     public CategoryDocumentPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
 
-        pages[0] = new CategoryListPage1Fragment();
-        pages[1] = new CategoryListPage2Fragment();
-        pages[2] = new CategoryListPage3Fragment();
-        pages[3] = new CategoryListPage4Fragment();
-        pages[4] = new CategoryListPage5Fragment();
+        pages[0] = new CategoryListPage1Fragment("문서 글쓰기");
+        pages[1] = new CategoryListPage2Fragment("문서 글쓰기", title[1]);
+        pages[2] = new CategoryListPage3Fragment("문서 글쓰기", title[2]);
+        pages[3] = new CategoryListPage4Fragment("문서 글쓰기", title[3]);
+        pages[4] = new CategoryListPage5Fragment("문서 글쓰기", title[4]);
     }
 
     @NonNull

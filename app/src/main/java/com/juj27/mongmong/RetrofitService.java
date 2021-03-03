@@ -6,7 +6,6 @@ import java.util.Map;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -26,8 +25,11 @@ public interface RetrofitService {
     @GET("/MongMong/loadDB.php")
     Call<ArrayList<RecyclerListItem>> loadDataFromServer();
 
+    @GET("/MongMong/loadDBsubcategory.php")
+    Call<ArrayList<RecyclerListItem>> loadsubCategoryDataFromServer(@Query("category") String category, @Query("subcategory") String subcategory);
+
     @GET("/MongMong/loadDBcategory.php")
-    Call<ArrayList<RecyclerListItem>> loadCategooryDataFromServer(@Query("category") String category, @Query("subcategory") String subcategory);
+    Call<ArrayList<RecyclerListItem>> loadCategoryDataFromServer(@Query("category") String category);
 
     //"좋아요" 클릭으로 데이터의 변경을 시키는 작업을 해주는 php를 실행시키기
     @PUT("/MongMong/{fileName}")

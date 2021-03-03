@@ -13,11 +13,11 @@ public class CategoryTranslationPagerAdapter extends FragmentPagerAdapter {
     public CategoryTranslationPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
 
-        pages[0] = new CategoryListPage1Fragment();
-        pages[1] = new CategoryListPage2Fragment();
-        pages[2] = new CategoryListPage3Fragment();
-        pages[3] = new CategoryListPage4Fragment();
-        pages[4] = new CategoryListPage5Fragment();
+        pages[0] = new CategoryListPage1Fragment("번역 통역");
+        pages[1] = new CategoryListPage2Fragment("번역 통역", title[1]);
+        pages[2] = new CategoryListPage3Fragment("번역 통역", title[2]);
+        pages[3] = new CategoryListPage4Fragment("번역 통역", title[3]);
+        pages[4] = new CategoryListPage5Fragment("번역 통역", title[4]);
     }
 
     @NonNull

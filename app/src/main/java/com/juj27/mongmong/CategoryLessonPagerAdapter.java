@@ -8,16 +8,16 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class CategoryLessonPagerAdapter extends FragmentPagerAdapter {
 
     Fragment[] pages = new Fragment[5];
-    String[] title = new String[]{"전체", "사진", "프로그래밍", "데이터 분석", "외국어(영어)"};
+    String[] title = new String[]{"전체", "사진", "프로그래밍", "데이터분석", "외국어(영어)"};
 
     public CategoryLessonPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
 
-        pages[0] = new CategoryListPage1Fragment();
-        pages[1] = new CategoryListPage2Fragment();
-        pages[2] = new CategoryListPage3Fragment();
-        pages[3] = new CategoryListPage4Fragment();
-        pages[4] = new CategoryListPage5Fragment();
+        pages[0] = new CategoryListPage1Fragment("레슨 실무교육");
+        pages[1] = new CategoryListPage2Fragment("레슨 실무교육", title[1]);
+        pages[2] = new CategoryListPage3Fragment("레슨 실무교육", title[2]);
+        pages[3] = new CategoryListPage4Fragment("레슨 실무교육", title[3]);
+        pages[4] = new CategoryListPage5Fragment("레슨 실무교육", title[4]);
     }
 
     @NonNull

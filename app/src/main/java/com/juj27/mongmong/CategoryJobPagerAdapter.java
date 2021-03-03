@@ -13,11 +13,11 @@ public class CategoryJobPagerAdapter extends FragmentPagerAdapter {
     public CategoryJobPagerAdapter(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
 
-        pages[0] = new CategoryListPage1Fragment();
-        pages[1] = new CategoryListPage2Fragment();
-        pages[2] = new CategoryListPage3Fragment();
-        pages[3] = new CategoryListPage4Fragment();
-        pages[4] = new CategoryListPage5Fragment();
+        pages[0] = new CategoryListPage1Fragment("취업 투잡");
+        pages[1] = new CategoryListPage2Fragment("취업 투잡", title[1]);
+        pages[2] = new CategoryListPage3Fragment("취업 투잡", title[2]);
+        pages[3] = new CategoryListPage4Fragment("취업 투잡", title[3]);
+        pages[4] = new CategoryListPage5Fragment("취업 투잡", title[4]);
     }
 
     @NonNull
