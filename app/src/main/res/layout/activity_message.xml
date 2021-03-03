@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="4dp"
-        android:background="@color/purple_500">
+        android:background="#D2B5FA">
 
         <EditText
             android:id="@+id/et_chat"

@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,14 +60,18 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-//                if (editText.getText().length() == 0){
-//                    listView.clearTextFilter();
-//                }
+                if (editText.getText().length() == 0){
+                    listView.clearTextFilter();
+                }
             }
         });
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    public void clickSearch(View view) {
+        Toast.makeText(this, "아직 적용이 되지 않았습니다. 추후 적용될 예정될 것입니다.", Toast.LENGTH_SHORT).show();
     }
 }

@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
             case R.id.search:
-                Toast.makeText(getActivity(), "aaa", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "aaa", Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent2);
 
@@ -153,13 +153,13 @@ public class HomeFragment extends Fragment {
         recyclerAdapter0 = new Recycler_adAdapter(getActivity(),items0);
         recyclerView0.setAdapter(recyclerAdapter0);
 
-        recyclerView = view.findViewById(R.id.recycler_ma);
-        recyclerAdapter = new HomeRecyclerAdapter(getActivity(),items);
-        recyclerView.setAdapter(recyclerAdapter);
-
-        recyclerView2 = view.findViewById(R.id.recycler_it);
-        recyclerAdapter2 = new HomeRecyclerAdapter(getActivity(),items2);
-        recyclerView2.setAdapter(recyclerAdapter2);
+//        recyclerView = view.findViewById(R.id.recycler_ma);
+//        recyclerAdapter = new HomeRecyclerAdapter(getActivity(),items);
+//        recyclerView.setAdapter(recyclerAdapter);
+//
+//        recyclerView2 = view.findViewById(R.id.recycler_it);
+//        recyclerAdapter2 = new HomeRecyclerAdapter(getActivity(),items2);
+//        recyclerView2.setAdapter(recyclerAdapter2);
 
         recyclerView3 = view.findViewById(R.id.recycler_se);
         listAdapter = new RecyclerListAdapter(getActivity(), listItems);
@@ -169,30 +169,24 @@ public class HomeFragment extends Fragment {
 
     void loadData(){
 
-        items0.add(new Recycler_adItem());
-        items0.add(new Recycler_adItem());
-        items0.add(new Recycler_adItem());
-        items0.add(new Recycler_adItem());
-        items0.add(new Recycler_adItem());
-        items0.add(new Recycler_adItem());
 
-        items.add(new HomeRecyclerItem());
-        items.add(new HomeRecyclerItem());
-        items.add(new HomeRecyclerItem());
-        items.add(new HomeRecyclerItem());
-        items.add(new HomeRecyclerItem());
-        items.add(new HomeRecyclerItem());
 
-        items2.add(new HomeRecyclerItem());
-        items2.add(new HomeRecyclerItem());
-        items2.add(new HomeRecyclerItem());
-        items2.add(new HomeRecyclerItem());
-        items2.add(new HomeRecyclerItem());
-        items2.add(new HomeRecyclerItem());
+        items0.add(new Recycler_adItem(R.drawable.ad_1));
+        items0.add(new Recycler_adItem(R.drawable.ad_2));
+
+
+//        items.add(new HomeRecyclerItem());
+//        items.add(new HomeRecyclerItem());
+//        items.add(new HomeRecyclerItem());
+//        items.add(new HomeRecyclerItem());
+//        items.add(new HomeRecyclerItem());
+//        items.add(new HomeRecyclerItem());
+//
+//        items2.add(new HomeRecyclerItem());
+//        items2.add(new HomeRecyclerItem());
+//        items2.add(new HomeRecyclerItem());
+//        items2.add(new HomeRecyclerItem());
+//        items2.add(new HomeRecyclerItem());
+//        items2.add(new HomeRecyclerItem());
     }
-
-
-
-
-
 }

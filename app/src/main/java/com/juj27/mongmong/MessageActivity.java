@@ -91,7 +91,7 @@ public class MessageActivity extends AppCompatActivity {
         databaseReference.child(time).setValue(new ChattingVO(Login.nickName, data, visualTime)).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(MessageActivity.this, "전송완료", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MessageActivity.this, "아직 적용이 되지 않았습니다. 추후 적용될 예정될 것입니다.", Toast.LENGTH_SHORT).show();
                 editText.setText("");
             }
         });
