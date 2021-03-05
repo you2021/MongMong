@@ -21,6 +21,9 @@ public interface RetrofitService {
     @POST("/MongMong/insertDB.php")
     Call<String> postDataToServer(@PartMap Map<String, String> dataPart, @Part MultipartBody.Part filePaet);
 
+    @Multipart
+    @POST("")
+
     //서버에서 데이터를 json으로 파싱하여 가져오는 추상메소드
     @GET("/MongMong/loadDB.php")
     Call<ArrayList<RecyclerListItem>> loadDataFromServer();
@@ -34,4 +37,6 @@ public interface RetrofitService {
     //"좋아요" 클릭으로 데이터의 변경을 시키는 작업을 해주는 php를 실행시키기
     @PUT("/MongMong/{fileName}")
     Call<RecyclerListItem> updateData(@Part("fileName") String fileName, @Body RecyclerListItem item);
+
+
 }

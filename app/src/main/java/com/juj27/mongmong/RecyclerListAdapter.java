@@ -110,25 +110,33 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                         int position = getAdapterPosition();
                         RecyclerListItem item = items.get(position);
 
-                        final  ArrayList<String> list = new ArrayList<>();
+                        ArrayList<String> list = new ArrayList<>();
                         list.add("의뢰하기");
                         list.add("메세지보내기");
-                        final CharSequence[] items = list.toArray(new String[list.size()]);
+                        CharSequence[] items = list.toArray(new String[list.size()]);
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setItems(items, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if(items[which] == items[0]){
-                                    Intent intent = new Intent(context, RequestActivity.class);
-                                    intent.putExtra("title", item.title);
-                                    intent.putExtra("img", item.img);
-                                    intent.putExtra("message", item.msg);
-                                    intent.putExtra("price", item.price);
-                                    context.startActivity(intent);
+                                    if(Login.nickName !=null){
+                                        Intent intent = new Intent(context, RequestActivity.class);
+                                        context.startActivity(intent);
+                                    }else {
+                                        Intent intent = new Intent(context, LoginActivity.class);
+                                        ((MainActivity)context).startActivityForResult(intent, 300);
+                                    }
+
                                 }else {
-                                    Intent intent = new Intent(context, MessageActivity.class);
-                                    context.startActivity(intent);
+                                    if(Login.nickName !=null){
+                                        Intent intent = new Intent(context,MessageActivity.class);
+                                        context.startActivity(intent);
+                                    }else {
+                                        Intent intent = new Intent(context, LoginActivity.class);
+                                        ((MainActivity)context).startActivityForResult(intent, 400);
+                                    }
+
                                 }
                             }
                         });
@@ -138,31 +146,6 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                 });
         }
     }
-
-    void show(){
-        final  ArrayList<String> list = new ArrayList<>();
-        list.add("의뢰하기");
-        list.add("메세지보내기");
-        final CharSequence[] items = list.toArray(new String[list.size()]);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if(items[which] == items[0]){
-                    Intent intent = new Intent(context, RequestActivity.class);
-                    context.startActivity(intent);
-                }else {
-                    Intent intent = new Intent(context, MessageActivity.class);
-                    context.startActivity(intent);
-                }
-            }
-        });
-        builder.show();
-    }
-
-
-
 
 }
 

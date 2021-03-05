@@ -146,6 +146,20 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
 
+            case 300:
+                if (resultCode == RESULT_OK){ //의뢰내역으로
+                    Intent intent = new Intent(this, RequestActivity.class);
+                    startActivity(intent);
+                }
+                break;
+
+            case 400:
+                if (resultCode == RESULT_OK){   //메세지로
+                    Intent intent = new Intent(this, MessageActivity.class);
+                    startActivity(intent);
+                }
+                break;
+
         }
     }
 }
