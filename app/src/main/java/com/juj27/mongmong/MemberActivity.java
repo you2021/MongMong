@@ -51,6 +51,7 @@ public class MemberActivity extends AppCompatActivity {
                 login.ID = id;
                 Intent intent = new Intent(MemberActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

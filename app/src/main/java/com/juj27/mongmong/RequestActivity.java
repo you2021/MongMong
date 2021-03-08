@@ -8,11 +8,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.juj27.mongmong.R;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.http.Multipart;
 
 public class RequestActivity extends AppCompatActivity {
 
@@ -33,27 +47,10 @@ public class RequestActivity extends AppCompatActivity {
         ac.setDisplayShowTitleEnabled(false);
         ac.setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        String img = intent.getStringExtra("img");
-        String message = intent.getStringExtra("message");
-        String price = intent.getStringExtra("price");
-
-        item.title = title;
-        item.img = img;
-        item.message = message;
-        item.price = price;
-
-        items.add(item);
-
-        recyclerView = findViewById(R.id.request_recycler);
-        listAdapter = new RequesAdapter(this, items);
-        recyclerView.setAdapter(listAdapter);
 
 
 
-    }
-
+        }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

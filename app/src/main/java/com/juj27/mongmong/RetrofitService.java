@@ -22,7 +22,8 @@ public interface RetrofitService {
     Call<String> postDataToServer(@PartMap Map<String, String> dataPart, @Part MultipartBody.Part filePaet);
 
     @Multipart
-    @POST("")
+    @POST("/MongMong/insertDBrequest.php")
+    Call<String> postRequestDataToServer(@PartMap Map<String, String> dataPart, @Part MultipartBody.Part filePaet);
 
     //서버에서 데이터를 json으로 파싱하여 가져오는 추상메소드
     @GET("/MongMong/loadDB.php")

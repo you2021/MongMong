@@ -19,8 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -123,9 +129,80 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                                     if(Login.nickName !=null){
                                         Intent intent = new Intent(context, RequestActivity.class);
                                         context.startActivity(intent);
+
+                                        String title = item.title;
+                                        String img = item.img;
+                                        String message = item.msg;
+                                        String price = item.price;
+
+                                        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
+                                        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+
+                                        MultipartBody.Part filePart = null;
+                                        if (img != null ) {
+                                            File file = new File(img);
+                                            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
+                                            filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
+                                        }
+
+                                        Map<String, String> dataPart = new HashMap<>();
+                                        dataPart.put("title", title  );
+                                        dataPart.put("message", message);
+                                        dataPart.put("price", price);
+
+                                        Call<String> call = retrofitService.postRequestDataToServer(dataPart, filePart);
+                                        call.enqueue(new Callback<String>() {
+                                            @Override
+                                            public void onResponse(Call<String> call, Response<String> response) {
+                                                String s = response.body();
+                                                Toast.makeText(context, ""+s, Toast.LENGTH_SHORT).show();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<String> call, Throwable t) {
+                                                Toast.makeText(context, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                Log.i("TAG",t.getMessage());
+                                            }
+                                        });
+                                        ((MainActivity)context).finish();
                                     }else {
                                         Intent intent = new Intent(context, LoginActivity.class);
                                         ((MainActivity)context).startActivityForResult(intent, 300);
+                                        String title = item.title;
+                                        String img = item.img;
+                                        String message = item.msg;
+                                        String price = item.price;
+
+                                        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
+                                        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+
+                                        MultipartBody.Part filePart = null;
+                                        if (img != null ) {
+                                            File file = new File(img);
+                                            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
+                                            filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
+                                        }
+
+                                        Map<String, String> dataPart = new HashMap<>();
+                                        dataPart.put("title", title  );
+                                        dataPart.put("message", message);
+                                        dataPart.put("price", price);
+
+                                        Call<String> call = retrofitService.postRequestDataToServer(dataPart, filePart);
+                                        call.enqueue(new Callback<String>() {
+                                            @Override
+                                            public void onResponse(Call<String> call, Response<String> response) {
+                                                String s = response.body();
+                                                Toast.makeText(context, ""+s, Toast.LENGTH_SHORT).show();
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<String> call, Throwable t) {
+                                                Toast.makeText(context, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                                Log.i("TAG",t.getMessage());
+                                            }
+                                        });
+                                        ((MainActivity)context).finish();
                                     }
 
                                 }else {
