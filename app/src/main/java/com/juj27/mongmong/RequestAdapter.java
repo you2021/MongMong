@@ -14,12 +14,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class RequesAdapter extends RecyclerView.Adapter {
+public class RequestAdapter extends RecyclerView.Adapter {
 
     Context context;
     ArrayList<RequestItem> items;
 
-    public RequesAdapter(Context context, ArrayList<RequestItem> items) {
+    public RequestAdapter(Context context, ArrayList<RequestItem> items) {
         this.context = context;
         this.items = items;
     }
@@ -27,7 +27,7 @@ public class RequesAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.recycler_list_item, parent,false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.recycler_request_item, parent,false);
         VH vh = new VH(itemView);
 
         return vh;

@@ -6,35 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.juj27.mongmong.R;
-
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.http.Multipart;
 
 public class RequestActivity extends AppCompatActivity {
 
     ArrayList<RequestItem> items = new ArrayList<>();
     RecyclerView recyclerView;
-    RequesAdapter listAdapter;
-
-    RequestItem item = new RequestItem();
+    RequestAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +33,32 @@ public class RequestActivity extends AppCompatActivity {
         ActionBar ac = getSupportActionBar();
         ac.setDisplayShowTitleEnabled(false);
         ac.setDisplayHomeAsUpEnabled(true);
+
+        recyclerView = findViewById(R.id.request_recycler);
+        adapter = new RequestAdapter(this, items);
+        recyclerView.setAdapter(adapter);
+
+        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
+        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+        Call<ArrayList<RequestItem>> call = retrofitService.loadRequestDataFromServer();
+        call.enqueue(new Callback<ArrayList<RequestItem>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RequestItem>> call, Response<ArrayList<RequestItem>> response) {
+                items.clear();
+                adapter.notifyDataSetChanged();
+
+                ArrayList<RequestItem> list = response.body();
+                for (RequestItem item : list){
+                    items.add(0,item);
+                    adapter.notifyItemInserted(0);
+                }
+            }
+            @Override
+            public void onFailure(Call<ArrayList<RequestItem>> call, Throwable t) {
+                Toast.makeText(RequestActivity.this, "실패"+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 

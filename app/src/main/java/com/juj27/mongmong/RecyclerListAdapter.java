@@ -126,9 +126,8 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if(items[which] == items[0]){
+
                                     if(Login.nickName !=null){
-                                        Intent intent = new Intent(context, RequestActivity.class);
-                                        context.startActivity(intent);
 
                                         String title = item.title;
                                         String img = item.img;
@@ -138,73 +137,37 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                                         Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
                                         RetrofitService retrofitService = retrofit.create(RetrofitService.class);
 
-                                        MultipartBody.Part filePart = null;
-                                        if (img != null ) {
-                                            File file = new File(img);
-                                            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
-                                            filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
-                                        }
-
                                         Map<String, String> dataPart = new HashMap<>();
+                                        dataPart.put("nick", Login.nickName);
                                         dataPart.put("title", title  );
-                                        dataPart.put("message", message);
+                                        dataPart.put("img",img);
+                                        dataPart.put("msg", message);
                                         dataPart.put("price", price);
 
-                                        Call<String> call = retrofitService.postRequestDataToServer(dataPart, filePart);
+                                        Call<String> call = retrofitService.postRequestDataToServer(dataPart);
                                         call.enqueue(new Callback<String>() {
                                             @Override
                                             public void onResponse(Call<String> call, Response<String> response) {
                                                 String s = response.body();
                                                 Toast.makeText(context, ""+s, Toast.LENGTH_SHORT).show();
+
+                                                Intent intent = new Intent(context, RequestActivity.class);
+                                                context.startActivity(intent);
+                                                ((MainActivity)context).finish();
                                             }
 
                                             @Override
                                             public void onFailure(Call<String> call, Throwable t) {
                                                 Toast.makeText(context, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
-                                                Log.i("TAG",t.getMessage());
+                                                Log.i("LOG","error:"+t.getMessage());
                                             }
                                         });
-                                        ((MainActivity)context).finish();
+
                                     }else {
+
                                         Intent intent = new Intent(context, LoginActivity.class);
                                         ((MainActivity)context).startActivityForResult(intent, 300);
-                                        String title = item.title;
-                                        String img = item.img;
-                                        String message = item.msg;
-                                        String price = item.price;
-
-                                        Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
-                                        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-
-                                        MultipartBody.Part filePart = null;
-                                        if (img != null ) {
-                                            File file = new File(img);
-                                            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
-                                            filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
-                                        }
-
-                                        Map<String, String> dataPart = new HashMap<>();
-                                        dataPart.put("title", title  );
-                                        dataPart.put("message", message);
-                                        dataPart.put("price", price);
-
-                                        Call<String> call = retrofitService.postRequestDataToServer(dataPart, filePart);
-                                        call.enqueue(new Callback<String>() {
-                                            @Override
-                                            public void onResponse(Call<String> call, Response<String> response) {
-                                                String s = response.body();
-                                                Toast.makeText(context, ""+s, Toast.LENGTH_SHORT).show();
-                                            }
-
-                                            @Override
-                                            public void onFailure(Call<String> call, Throwable t) {
-                                                Toast.makeText(context, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
-                                                Log.i("TAG",t.getMessage());
-                                            }
-                                        });
-                                        ((MainActivity)context).finish();
                                     }
-
                                 }else {
                                     if(Login.nickName !=null){
                                         Intent intent = new Intent(context,MessageActivity.class);

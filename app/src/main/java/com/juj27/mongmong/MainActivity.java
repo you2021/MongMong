@@ -160,46 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
             case 300:
                 if (resultCode == RESULT_OK){ //의뢰내역으로
-
-                    Intent intent = getIntent();
-                    String title = intent.getStringExtra("title");
-                    String img = intent.getStringExtra("img");
-                    String message = intent.getStringExtra("message");
-                    String price = intent.getStringExtra("price");
-
-                    Retrofit retrofit = RetrofitHelper.getRetrofitInstanceScalars();
-                    RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-
-                    MultipartBody.Part filePart = null;
-                    if (img != null ) {
-                        File file = new File(img);
-                        RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
-                        filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
-                    }
-
-                    Map<String, String> dataPart = new HashMap<>();
-                    dataPart.put("title", title  );
-                    dataPart.put("message", message);
-                    dataPart.put("price", price);
-
-                    Call<String> call = retrofitService.postRequestDataToServer(dataPart, filePart);
-                    call.enqueue(new Callback<String>() {
-                        @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-                            String s = response.body();
-                            Toast.makeText(MainActivity.this, ""+s, Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-                            Toast.makeText(MainActivity.this, "Error : "+t.getMessage(), Toast.LENGTH_SHORT).show();
-                            Log.i("TAG",t.getMessage());
-                        }
-                    });
-                    finish();
-
-                    Intent intent2 = new Intent(this, RequestActivity.class);
-                    startActivity(intent2);
+                    bnv.setSelectedItemId(R.id.bnv_category);
                 }
                 break;
 
