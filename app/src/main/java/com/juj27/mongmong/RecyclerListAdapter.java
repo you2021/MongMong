@@ -164,7 +164,7 @@ public class RecyclerListAdapter extends RecyclerView.Adapter <RecyclerListAdapt
                                         });
 
                                     }else {
-
+                                        Toast.makeText(context, "로그인 후 이용해주세요.", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(context, LoginActivity.class);
                                         ((MainActivity)context).startActivityForResult(intent, 300);
                                     }

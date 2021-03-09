@@ -38,9 +38,11 @@ public class RequestActivity extends AppCompatActivity {
         adapter = new RequestAdapter(this, items);
         recyclerView.setAdapter(adapter);
 
+        String nick = Login.nickName;
+
         Retrofit retrofit = RetrofitHelper.getRetrofitInstanceGson();
         RetrofitService retrofitService = retrofit.create(RetrofitService.class);
-        Call<ArrayList<RequestItem>> call = retrofitService.loadRequestDataFromServer();
+        Call<ArrayList<RequestItem>> call = retrofitService.loadRequestDataFromServer(nick);
         call.enqueue(new Callback<ArrayList<RequestItem>>() {
             @Override
             public void onResponse(Call<ArrayList<RequestItem>> call, Response<ArrayList<RequestItem>> response) {
@@ -58,12 +60,7 @@ public class RequestActivity extends AppCompatActivity {
                 Toast.makeText(RequestActivity.this, "실패"+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
-        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -73,6 +70,5 @@ public class RequestActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 }

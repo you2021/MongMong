@@ -30,7 +30,7 @@ public interface RetrofitService {
     Call<ArrayList<RecyclerListItem>> loadDataFromServer();
 
     @GET("/MongMong/loadDBrequest.php")
-    Call<ArrayList<RequestItem>> loadRequestDataFromServer();
+    Call<ArrayList<RequestItem>> loadRequestDataFromServer(@Query("nick") String nick);
 
     @GET("/MongMong/loadDBsubcategory.php")
     Call<ArrayList<RecyclerListItem>> loadsubCategoryDataFromServer(@Query("category") String category, @Query("subcategory") String subcategory);
