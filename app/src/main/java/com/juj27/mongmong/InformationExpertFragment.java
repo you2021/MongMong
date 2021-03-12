@@ -88,9 +88,6 @@ public class InformationExpertFragment extends Fragment {
                     public Unit invoke(Throwable throwable) {
 
                             Login.nickName = null;
-                            Login.profileUrl = null;
-
-                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
                         Intent intent = new Intent(getActivity(),MainActivity.class);
                         startActivity(intent);
@@ -111,6 +108,10 @@ public class InformationExpertFragment extends Fragment {
         super.onResume();
         tvNick.setText(Login.nickName);
         Glide.with(getActivity()).load(Login.profileUrl).into(circle);
+
+        if(Login.nickName == Login.ID) {
+            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
+        }
 
     }
 }

@@ -39,11 +39,14 @@ public class RequestAdapter extends RecyclerView.Adapter {
         VH vh = (VH)holder;
 
         RequestItem item = items.get(position);
-        vh.tvTitle.setText(item.title);
-        vh.tvMsg.setText(item.message);
-        vh.tvPrice.setText(item.price);
 
-        Glide.with(context).load(item.img).into(vh.iv);
+        String imgUrl = "http://you2021.dothome.co.kr/MongMong/"+item.img;
+
+        vh.tvTitle.setText(item.title);
+        vh.tvMsg.setText(item.msg);
+        vh.tvPrice.setText(item.price+"원");
+
+        Glide.with(context).load(imgUrl).into(vh.iv);
     }
 
     @Override

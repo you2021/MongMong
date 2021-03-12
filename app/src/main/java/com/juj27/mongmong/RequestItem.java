@@ -4,16 +4,16 @@ public class RequestItem {
 
      String title;
      String img;
-     String message;
+     String msg;
      String price;
 
     public RequestItem() {
     }
 
-    public RequestItem(String title, String img, String message, String price) {
+    public RequestItem(String title, String img, String msg, String price) {
         this.title = title;
         this.img = img;
-        this.message = message;
+        this.msg = msg;
         this.price = price;
     }
 }

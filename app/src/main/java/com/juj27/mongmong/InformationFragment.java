@@ -2,11 +2,14 @@ package com.juj27.mongmong;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.loader.content.CursorLoader;
 
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
@@ -28,8 +32,6 @@ public class InformationFragment extends Fragment {
 
     CircleImageView circle;
     TextView tvNick;
-
-    Login login = new Login();
 
     @Nullable
     @Override
@@ -76,14 +78,14 @@ public class InformationFragment extends Fragment {
             }
         });
 
-//        circle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_PICK);
-//                intent.setType("image/*");
-//                startActivityForResult(intent,5);
-//            }
-//        });
+        circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                getActivity().startActivityForResult(intent, 1);
+            }
+        });
 
 
 
@@ -99,9 +101,6 @@ public class InformationFragment extends Fragment {
                     public Unit invoke(Throwable throwable) {
 
                             Login.nickName = null;
-//                            Login.profileUrl = null;
-//
-//                            Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
 
                             Intent intent = new Intent(getActivity(),MainActivity.class);
                             startActivity(intent);
@@ -126,7 +125,7 @@ public class InformationFragment extends Fragment {
         tvNick.setText(Login.nickName);
         Glide.with(getActivity()).load(Login.profileUrl).into(circle);
 
-        if(Login.nickName == login.ID){
+        if(Login.nickName == Login.ID){
             Glide.with(getActivity()).load(R.drawable.ic_person_24).into(circle);
         }
     }

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -62,8 +63,6 @@ public class LoginActivity extends AppCompatActivity {
     String pw;
 
     EditText etId, etPw;
-
-    Login login = new Login();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,7 +174,6 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-
     //로그인
     public void clickLogin(View view) {
         id=etId.getText().toString();
@@ -198,11 +196,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (pw.equals(str)){
                     Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
 
-                    login.ID = id;
+                    Login.ID = id;
                     Login.nickName = id;
 
-                    setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
 
+                    setResult(RESULT_OK);//이 액티비트를 실행한 결과가 OK
                     finish();
 
                 }else {
