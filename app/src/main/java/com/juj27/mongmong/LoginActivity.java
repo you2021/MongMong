@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,8 +74,17 @@ public class LoginActivity extends AppCompatActivity {
         etPw = findViewById(R.id.et_login_pw);
 
         //키 해시값
-        String keyHash = Utility.INSTANCE.getKeyHash(this);
-        Log.i("KeyHash", keyHash);
+//        String keyHash = Utility.INSTANCE.getKeyHash(this);
+//        Log.i("KeyHash", keyHash);
+
+        byte[] sha1 = {
+                (byte)0x1C, (byte)0xA8, (byte)0xF6, (byte)0xAC, (byte)0x61, (byte)0x40,
+                (byte)0x1A, (byte)0x2D, (byte)0x34, (byte)0xC9, (byte)0x22, (byte)0x16,
+                (byte)0x93, (byte)0x75, (byte)0xB9, (byte)0x26, (byte)0x01,(byte)0x4B,
+                (byte)0x4D, (byte)0xF9};
+        Log.i("KeyHash", Base64.encodeToString(sha1, Base64.NO_WRAP));
+
+        //HKj2rGFAGi00ySIWk3W5JgFLTfk=
 
         //페이스북
         callbackManager = CallbackManager.Factory.create();

@@ -119,11 +119,11 @@ public class HomeFragment extends Fragment {
                 listAdapter.notifyDataSetChanged();;
 
                 //결과로 받아온 item에 추가
-                ArrayList<RecyclerListItem> list =  response.body();
-                for(RecyclerListItem item : list){
-                    listItems.add(0,item);
-                    listAdapter.notifyItemInserted(0);
-                }
+//                ArrayList<RecyclerListItem> list =  response.body();
+//                for(RecyclerListItem item : list){
+//                    listItems.add(0,item);
+//                    listAdapter.notifyItemInserted(0);
+//                }
             }
             @Override
             public void onFailure(Call<ArrayList<RecyclerListItem>> call, Throwable t) {
