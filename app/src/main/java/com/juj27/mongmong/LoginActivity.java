@@ -78,13 +78,13 @@ public class LoginActivity extends AppCompatActivity {
 //        Log.i("KeyHash", keyHash);
 
         byte[] sha1 = {
-                (byte)0x1C, (byte)0xA8, (byte)0xF6, (byte)0xAC, (byte)0x61, (byte)0x40,
-                (byte)0x1A, (byte)0x2D, (byte)0x34, (byte)0xC9, (byte)0x22, (byte)0x16,
-                (byte)0x93, (byte)0x75, (byte)0xB9, (byte)0x26, (byte)0x01,(byte)0x4B,
-                (byte)0x4D, (byte)0xF9};
+                (byte)0x73, (byte)0x96, (byte)0x48, (byte)0x34, (byte)0xDC, (byte)0x01,
+                (byte)0x10, (byte)0x76, (byte)0xD7, (byte)0x3B, (byte)0x55, (byte)0xFE,
+                (byte)0x9C, (byte)0xD4, (byte)0x06, (byte)0x73, (byte)0xA2, (byte)0xCD,
+                (byte)0xE7, (byte)0x7C};
         Log.i("KeyHash", Base64.encodeToString(sha1, Base64.NO_WRAP));
 
-        //HKj2rGFAGi00ySIWk3W5JgFLTfk=
+        //c5ZINNwBEHbXO1X+nNQGc6LN53w=
 
         //페이스북
         callbackManager = CallbackManager.Factory.create();
